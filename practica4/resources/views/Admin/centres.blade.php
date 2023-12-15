@@ -33,24 +33,30 @@
                 <th>Adreça</th>
                 <th>CP</th>
                 <th>Ciutat</th>
+                <th>Del</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Bucle per recórrer i mostrar cada centre -->
-            @foreach($centres as $centre)
+            @foreach ($centres as $centre)
             <tr>
-                <td>{{ $centre['id'] }}</td>
-                <td>{{ $centre['name'] }}</td>
-                <td>{{ $centre['address'] }}</td>
-                <td>{{ $centre['cp'] }}</td>
-                <td>{{ $centre['city'] }}</td>
+                <td>{{ $centre->id }}</td>
+                <td>{{ $centre->name }}</td>
+                <td>{{ $centre->address }}</td>
+                <td>{{ $centre->cp }}</td>
+                <td>{{ $centre->city }}</td>
+                <td><a href="{{ route('delete_centre', ['id' => $centre->id]) }}">DEL</a></td>
+                <td><a href="{{ route('edit_centre', ['id' => $centre->id]) }}">EDIT</a></td>
+            
             </tr>
             @endforeach
+            
         </tbody>
     </table>
 
     <!-- Enllaç per tornar a la vista d'administrador utilitzant la ruta 'admin_view' -->
     <a href="{{ route('admin_view') }}">ADMIN VISTA</a>
+    <a href="{{ route('create_centre') }}">ADD CENTRE</a>
 </body>
 
 </html>
