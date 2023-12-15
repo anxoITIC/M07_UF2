@@ -54,7 +54,7 @@ class AlumnatController extends Controller
     public function show(Alumne $alumne)
     {
         // Retorna la vista per mostrar els detalls d'un alumne específic
-        return view('Admin.alumnat.show', compact('alumne'));
+        return view('Admin.alumnat_show', compact('alumne'));
     }
 
     /*
