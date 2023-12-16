@@ -45,9 +45,20 @@
                 <td>{{ $centre->address }}</td>
                 <td>{{ $centre->cp }}</td>
                 <td>{{ $centre->city }}</td>
-                <td><a href="{{ route('delete_centre', ['id' => $centre->id]) }}">DEL</a></td>
-                <td><a href="{{ route('edit_centre', ['id' => $centre->id]) }}">EDIT</a></td>
-            
+
+                <!-- Formulari per eliminar un registre de la taula 'centres' a partir de la seva ID -->
+                <td>
+                    <form method="post" action="{{ route('delete_centre', ['centre' => $centre['id']]) }}">
+                        @csrf
+                        @method('delete')
+                        <button type="submit">DEL</button>
+                    </form>
+                </td>
+
+                <!-- Enllaç per editar un registre de la taula 'centres' a partir de la seva ID -->
+                <td>
+                    <a href="{{ route('show_centre', ['centre' => $centre['id']]) }}">EDIT</a>
+                </td>
             </tr>
             @endforeach
             
@@ -56,6 +67,7 @@
 
     <!-- Enllaç per tornar a la vista d'administrador utilitzant la ruta 'admin_view' -->
     <a href="{{ route('admin_view') }}">ADMIN VISTA</a>
+
     <a href="{{ route('create_centre') }}">ADD CENTRE</a>
 </body>
 

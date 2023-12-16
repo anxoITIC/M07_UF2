@@ -35,7 +35,18 @@ class CentresController extends Controller
 
     public function edit(Centre $centre)
     {
+        $centre->name = request('name');
+        $centre->address = request('address');
+        $centre->cp = request('cp');
+        $centre->city = request('city');
+        $centre->save();
+        return redirect()->route('centres');
         
+    }
+
+    public function show(Centre $centre)
+    {
+        return view('Admin.edit_centre', ['centre' => $centre]);
     }
     
         
