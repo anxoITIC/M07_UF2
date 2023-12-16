@@ -14,7 +14,7 @@
     <!-- Llista d'enllaços a les pàgines de gestió -->
     <ul>
         <li><a href="{{ route('centres') }}">Centres</a></li>
-        <li><a href="{{ route('alumnat') }}">Alumnat</a></li>
+        <li><a href="{{ route('alumnat.index') }}">Alumnat</a></li>
         <li><a href="{{ route('professorat') }}">Professorat</a></li>
     </ul>
 
