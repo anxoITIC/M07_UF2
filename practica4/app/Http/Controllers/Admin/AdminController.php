@@ -54,12 +54,7 @@ class AdminController extends Controller
     // Mostra la vista dels centres
     public function centres()
     {
-        $centres = [
-            ['id' => 1, 'name' => 'ITIC', 'address' => 'Carrer Roc Boronat', 'cp' => '08020', 'city' => 'Barcelona'],
-            ['id' => 2, 'name' => 'Joan Austria', 'address' => 'Carrer Selva de Mar', 'cp' => '08020', 'city' => 'Barcelona'],
-        ];
-
-        return view('Admin.centres')->with(['centres' => $centres]);
+        return view('Admin.centres');
     }
 
     // Mostra la vista de l'alumnat
