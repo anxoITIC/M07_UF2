@@ -15,7 +15,7 @@ class CentresController extends Controller
     public function destroy(Centre $centre)
     {
         $centre->delete();
-        return redirect()->route('centres');
+        return redirect()->route('centres') ->with('success', 'Centre eliminat correctament');
     }
 
     public function create()
@@ -30,7 +30,7 @@ class CentresController extends Controller
         $centre->cp = $request->input('cp');
         $centre->city = $request->input('city');
         $centre->save();
-        return redirect()->route('centres');
+        return redirect()->route('centres') ->with('success', 'Centre afegit correctament');
     }
 
     public function edit(Centre $centre)
@@ -40,7 +40,7 @@ class CentresController extends Controller
         $centre->cp = request('cp');
         $centre->city = request('city');
         $centre->save();
-        return redirect()->route('centres');
+        return redirect()->route('centres') ->with('success', 'Centre editat correctament');
         
     }
 

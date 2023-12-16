@@ -24,6 +24,12 @@
 <body>
     <h1>LLISTA CENTRES</h1>
 
+    <?php
+        if (session('success')) {
+            echo "<p style='color:green'>" . session('success') . "</p>";
+        }
+    ?>
+
     <!-- Taula que mostra les dades dels centres -->
     <table>
         <thead>
