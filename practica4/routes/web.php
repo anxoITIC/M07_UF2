@@ -25,8 +25,3 @@ Route::prefix('usuari')->group(function () {
     Route::get('/signin', [SignController::class, 'showSignIn'])->name('signin');
     Route::get('/signup', [SignController::class, 'showSignUp'])->name('signup');
 });
-
-use App\Http\Controllers\Admin\ProfessorsController;
-
-//RUTA DEL PROFESSORAT
-Route::get('/professorat', [ProfessorsController::class, 'index'])->name('professorat');

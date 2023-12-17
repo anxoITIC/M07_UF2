@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFEGIR PROFESSOR</title>
+    <title>AFEGIR ALUMNE</title>
 </head>
 
 <body>
-    <h1>Afegeix Nou Professor</h1>
+    <h1>Afegeix Nou Alumne</h1>
 
-    <!-- INSTERTAR LES DADES PER AFEGIR EL PROFESSOR -->
-    <form method="post" action="{{ route('professor.store') }}">
+    <!-- Formulari per afegir un nou alumne -->
+    <form method="post" action="{{ route('alumnat.store') }}">
         <label for="name">Nom:</label>
         <input type="text" name="name" required>
 
@@ -21,13 +21,12 @@
         <label for="email">Email:</label>
         <input type="email" name="email" required>
 
-
-        <button type="submit">Afegir</button>
+        <button type="submit">Afegir Alumne</button>
 
     </form>
-    <!-- ENLLAÇ PER ANAR A LA ROUTE DELS PROFESSORS-->
+    <!-- Enllaç per tornar a la vista d'alumnat utilitzant la ruta alumnat.index -->
     <div>
-        <a href="{{ route('professor.index') }}">Professorat</a>
+        <a href="{{ route('alumnat.index') }}">Alumnat</a>
     </div>
 </body>
 
