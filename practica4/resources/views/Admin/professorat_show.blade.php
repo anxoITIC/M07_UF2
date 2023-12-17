@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumne detalls</title>
+    <title>Detalls del professor</title>
     <style>
         table {
             border: 1px solid;
@@ -20,28 +20,28 @@
 
 <body>
 
-    <h1>Alumne detalls</h1>
+    <h1>Detalls del professor</h1>
     <table>
         <tr>
             <th>ID</th>
-            <td>{{ $alumne->id }}</td>
+            <td>{{ $professor->id }}</td>
         </tr>
         <tr>
             <th>Nom</th>
-            <td>{{ $alumne->name }}</td>
+            <td>{{ $professor->name }}</td>
         </tr>
         <tr>
             <th>Cognom</th>
-            <td>{{ $alumne->surname }}</td>
+            <td>{{ $professor->surname }}</td>
         </tr>
         <tr>
             <th>Email</th>
-            <td>{{ $alumne->email }}</td>
+            <td>{{ $professor->email }}</td>
         </tr>
     </table>
-    <!-- Enllaç per tornar a la vista d'alumnat utilitzant la ruta alumnat.index -->
+    <!-- ROUTE PER TORNAR A LA LLISTA DE PROFES -->
     <div>
-        <a href="{{ route('alumnat.index') }}">Alumnat</a>
+        <a href="{{ route('professor.index') }}">Professorat</a>
     </div>
 </body>
 

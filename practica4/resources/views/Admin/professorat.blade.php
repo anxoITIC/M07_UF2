@@ -18,6 +18,13 @@
             border: 1px solid;
             padding: 8px;
         }
+
+        .success {
+            color: green;
+            padding: 10px;
+            margin-top; 10px;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -31,19 +38,31 @@
                 <th>ID</th>
                 <th>Nom</th>
                 <th>Cognom</th>
-                <th>Rol</th>
                 <th>Email</th>
             </tr>
         </thead>
         <tbody>
             <!-- Bucle per recórrer i mostrar cada professor -->
-            @foreach($professorat as $professor)
+            @foreach($professor as $professorat)
             <tr>
-                <td>{{ $professor['id'] }}</td>
-                <td>{{ $professor['name'] }}</td>
-                <td>{{ $professor['surname'] }}</td>
-                <td>{{ $professor['rol'] }}</td>
-                <td>{{ $professor['email'] }}</td>
+                <td>{{ $professorat['id'] }}</td>
+                <td>{{ $professorat['name'] }}</td>
+                <td>{{ $professorat['surname'] }}</td>
+                <td>{{ $professorat['email'] }}</td>
+                <td>
+                    //MODIFICACIONS
+                    <div>
+                        <a href="{{ route('professor.show', ['professor' => $professorat['id']]) }}">Mostra</a>
+                        <a href="{{ route('professor.edit', ['professor' => $professorat['id']]) }}">Edita</a>
+                    </div>
+                    <div>
+                        <form method="post" action="{{ route('professor.destroy', ['professor' => $professorat['id']]) }}">
+                            @csrf
+                            @method('delete')
+                            <button>Elimina</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -51,6 +70,12 @@
 
     <!-- Enllaç per tornar a la vista d'administrador utilitzant la ruta 'admin_view' -->
     <a href="{{ route('admin_view') }}">ADMIN VISTA</a>
+
+    <!--ENLLAÇ PER AFEGIR UN PROFESSOR NOU-->
+    <div>
+        <a href="{{ route('professor.create') }}">Afegir un professor</a>
+    </div>
+
 </body>
 
 </html>

@@ -54,7 +54,12 @@ class AdminController extends Controller
     // Mostra la vista dels centres
     public function centres()
     {
-        return view('Admin.centres');
+        $centres = [
+            ['id' => 1, 'name' => 'ITIC', 'address' => 'Carrer Roc Boronat', 'cp' => '08020', 'city' => 'Barcelona'],
+            ['id' => 2, 'name' => 'Joan Austria', 'address' => 'Carrer Selva de Mar', 'cp' => '08020', 'city' => 'Barcelona'],
+        ];
+
+        return view('Admin.centres')->with(['centres' => $centres]);
     }
 
     // Mostra la vista de l'alumnat
@@ -73,13 +78,6 @@ class AdminController extends Controller
     // Mostra la vista del professorat
     public function professorat()
     {
-        $professorat = [
-            ['id' => 1, 'name' => 'Jordi', 'surname' => 'Mas', 'rol' => 'Professor', 'email' => 'jordi@jordi.com'],
-            ['id' => 2, 'name' => 'Miquel ', 'surname' => 'Ros', 'rol' => 'Professor', 'email' => 'miquel@miquel.com'],
-            ['id' => 3, 'name' => 'Laura', 'surname' => 'Gomez', 'rol' => 'Professor', 'email' => 'laura@laura.com'],
-            ['id' => 4, 'name' => 'Albert', 'surname' => 'Fernandez', 'rol' => 'Professor', 'email' => 'albert@albert.com'],
-        ];
-
-        return view('Admin.professorat')->with(['professorat' => $professorat]);
+        return view('Admin.professorat');
     }
 }

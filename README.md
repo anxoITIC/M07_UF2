@@ -1,5 +1,12 @@
 # M07_UF2
 
+
+
+
+
+
+
+
 Pràctica 4, Anxo Aragundi
 
 Totes les funcionalitats estan fetes, només hi ha un problema a l'hora de redirigir després d'editar i afegir
