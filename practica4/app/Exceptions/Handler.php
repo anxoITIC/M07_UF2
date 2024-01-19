@@ -4,6 +4,11 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Http\Request;
+
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+
 
 class Handler extends ExceptionHandler
 {
@@ -23,8 +28,13 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        // Funció que ens retorna un missatge json quan no s´ha trobat la ruta quuan utilitzem una petició a la api
+        $this->renderable(function (NotFoundHttpException $e, Request $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'Missatge' => "No s'ha trobat"
+                ], 404);
+            }
         });
     }
 }
