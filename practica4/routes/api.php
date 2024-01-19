@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\ProfessorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Afegida les rutes de la API especificant que només utilitzem els metodes index,show,destroy a la ruta api/v1/professors
+Route::apiResource('v1/professors', ProfessorController::class)
+    ->only(['index', 'show', 'destroy']);
+
